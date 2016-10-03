@@ -1,5 +1,5 @@
 class Pet < ActiveRecord::Base
-  belongs_to :owner
+  belongs_to :owner, optional: true
 
   validates :name,
     presence: true,
