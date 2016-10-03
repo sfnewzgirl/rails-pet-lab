@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Owner, type: :model do
-  let (:owner) do
+  subject (:owner) do
     Owner.create({ first_name: "John", last_name: "Doe", email: "j_doe@example.com", phone: nil})
   end
 
@@ -17,7 +17,7 @@ RSpec.describe Owner, type: :model do
     it { should validate_uniqueness_of(:email) }
 
     context "when validating an email" do
-      it "should contain an @ symbol" do
+      it "contains an @ symbol" do
         owner.email = "asdf"
         expect{owner.save!}.to raise_error ActiveRecord::RecordInvalid
       end
