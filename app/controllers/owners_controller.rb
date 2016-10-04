@@ -24,7 +24,8 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    # stretch
+    owner_id = params[:id]
+    @owner = Owner.find_by_id(owner_id)
   end
 
   def update
